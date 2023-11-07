@@ -29,7 +29,7 @@ describe('./musicians endpoint', () => {
     
 })
 
-describe('./musicians endpoint', () => {
+describe('./bands endpoint', () => {
     // Write your tests here
     
     test("get 200 status",async () => {
@@ -45,9 +45,22 @@ describe('./musicians endpoint', () => {
         expect(responseData[0].name).toBe("The Beatles")
     })
     
+})
 
+describe('./musicians/:id endpoint', () => {
+    // Write your tests here
+    
+    test("get 200 status",async () => {
+        const response = await request(app).get("/musicians/1");
+        expect(response.statusCode).toBe(200);
 
+    })
 
+    test("test the data", async () => {
+        const response = await request(app).get("/musicians/1");
 
+        const responseData = JSON.parse(response.text);
+        expect(responseData.name).toBe("Mick Jagger")
+    })
     
 })

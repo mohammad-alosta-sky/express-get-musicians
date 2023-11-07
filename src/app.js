@@ -12,8 +12,8 @@ app.get("/musicians", async (req, res) => {
 })
 
 
-app.get("/musicians/:idTag", async (req, res) => {
-    const allMusicians = await Musician.findByPk(req.params.idTag);
+app.get("/musicians/:id", async (req, res) => {
+    const allMusicians = await Musician.findByPk(req.params.id);
     res.json(allMusicians);
 })
 
